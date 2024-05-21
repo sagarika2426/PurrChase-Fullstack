@@ -4,12 +4,17 @@ import Signup from "./components/Signup"
 import Products from "./components/Products";
 import ProductView from "./components/ProductView";
 import Cart from "./components/Cart";
+import Home from "./components/Home";
 
 
 function App() {
   return (
     <>
     <Routes>
+    <Route 
+          path ="/"
+          element = {<Home/>}
+        ></Route>
         <Route 
           path ="/signup"
           element = {<Signup/>}
