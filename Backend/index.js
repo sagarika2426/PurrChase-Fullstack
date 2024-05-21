@@ -25,6 +25,6 @@ app.use("/products", ProductRoute)
 
 
 app.listen(PORT, async() => {
-    await mongoose.connect("mongodb://localhost:27017/PurrChase")
+    await mongoose.connect("mongodb+srv://sagarikasahoo16:rSATLBFShY4ulnvN@sagarikacluster.fdrdjdy.mongodb.net/PurrChase?retryWrites=true&w=majority&appName=SagarikaCluster")
     console.log(`Server is running on port ${PORT}`);
 });
