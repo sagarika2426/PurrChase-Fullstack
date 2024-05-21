@@ -14,7 +14,7 @@ function Signup(){
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post("http://localhost:3000/signup", { 
+      const result = await axios.post("https://purrchase-fullstack.onrender.com/signup", { 
         first_name: firstName, 
         last_name: lastName, 
         username: username, 

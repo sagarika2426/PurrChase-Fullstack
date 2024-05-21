@@ -3,10 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../cart/cartSlice";
-import { Icon, IconButton, InputAdornment, TextField } from "@mui/material";
+import {IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
-import SortIcon from "@mui/icons-material/Sort";
 function Products() {
   const [products, setProducts] = useState([]);
 
@@ -20,7 +19,7 @@ function Products() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/products");
+      const res = await axios.get("https://purrchase-fullstack.onrender.com/products");
       setProducts(res.data);
       setFilteredProducts(res.data);
     } catch (err) {
@@ -33,14 +32,23 @@ function Products() {
   }, []);
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
-    let existingItems = JSON.parse(localStorage.getItem("cart")) || [];
+    const userVerified = localStorage.getItem("userVerified");
+  if (userVerified !== "true") {
+    // If user is not verified, show alert and redirect to login page
+    window.alert("Please login first to add items to the cart.");
+    // Redirect to login page
+    window.location.href = "/login";
+    return;
+  }
 
-    if (!Array.isArray(existingItems)) {
-      existingItems = [];
-    }
-    localStorage.setItem("cart", JSON.stringify([...existingItems, product]));
-    window.alert("Product added to the cart");
+  // If user is verified, dispatch addToCart action and add item to local storage
+  dispatch(addToCart(product));
+  let existingItems = JSON.parse(localStorage.getItem("cart")) || [];
+  if (!Array.isArray(existingItems)) {
+    existingItems = [];
+  }
+  localStorage.setItem("cart", JSON.stringify([...existingItems, product]));
+  window.alert("Product added to the cart");
   };
 
   // handle search input change

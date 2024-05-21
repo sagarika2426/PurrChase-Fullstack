@@ -2,7 +2,7 @@ import { IconButton } from "@mui/material";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 function Header() {
     const cart = useSelector((state) => state.cartReducer.items) || [];
     const navigate = useNavigate();
@@ -10,9 +10,14 @@ function Header() {
     const handleNavigate = () => {
         navigate("/cart");
     };
+    const handleNavigateLogin = () => {
+        navigate("/login");
+    };
 
     return (
         <div className="bg-orange-800 h-24 mb-2 flex items-center justify-between p-2">
+            {/* Logo */}
+            <Link to={"/"}>
             <div className="text-center">
                 <div>
                 <img
@@ -27,16 +32,20 @@ function Header() {
                 </div>
                
             </div>
+            </Link>
+            
             
            
             <div className="flex items-center">
            
-                <IconButton onClick={handleNavigate} className="!text-yellow-100">
+                <IconButton onClick={handleNavigate} className="!text-white">
                     <ShoppingBagIcon fontSize="large" />
                     <small>{cart.length}</small>
                 </IconButton>
-                <Link to={"/login"}
-                className="text-white text-xl font-semibold mx-2">Login</Link>
+                <IconButton onClick={handleNavigateLogin} className="!text-white">
+                    <AccountCircleIcon fontSize="large"/>
+                </IconButton>
+            
             </div>
         </div>
     );
