@@ -6,8 +6,9 @@ const login_post = async (req, res)=> {
     let exits = false;
     let found_user = null;
     try{
-        const user = await User.findOne({email});
-        if(!user || user.password !== password){
+        const user = await User.findOne({email, password},{password: 0});
+        console.log(user);
+        if(!user){
             return res.send({
                 user_varified:exits,
                 user_details: found_user,
