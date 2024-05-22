@@ -27,7 +27,7 @@ function Cart() {
       <IconButton onClick={handleNavigate} className="!text-orange-900">
         <ArrowBackIcon />
       </IconButton>
-      <div className="text-end font-bold text-lg text-blue-700 px-2 mb-6">
+      <div className="text-end font-bold text-lg text-green-700 px-2 mb-6">
         Total Price: ₹{calculateTotalPrice()}
       </div>
       {cart.length === 0 ? (
@@ -56,6 +56,10 @@ function Cart() {
           ))}
         </div>
       )}
+      <div className=" p-2">
+        <button
+        className="m-auto w-full p-2 bg-blue-800 text-white text-lg rounded-md">Checkout</button>
+      </div>
     </div>
   );
 }

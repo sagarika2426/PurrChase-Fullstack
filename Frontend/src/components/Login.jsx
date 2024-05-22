@@ -44,26 +44,35 @@ function Login(){
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("userVerified");
+    localStorage.removeItem("userDetails");
+    setIsLoggedin(false);
+
+  }
+
   if (isLoggedin) {
     return (
       <div>
         <div className="w-full mx-auto p-6 text-center block mt-6 bg-white lg:w-1/3">
           <h1>You are logged in!</h1>
-          <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-4">Logout</button>
+          <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-4"
+          onClick={handleLogout}>Logout</button>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="bg-gray-200 h-screen px-4">
+    <div className="h-screen px-4">
       <h1 className="text-center text-xl font-bold">Login</h1>
-      <div className="w-full mx-auto p-6 text-center shadow-xl shadow-gray-500 block mt-6 bg-white lg:w-1/3">
+      <div className="w-full mx-auto p-6 text-center shadow-xl shadow-gray-400 block mt-6 bg-white lg:w-1/3 rounded-md border border-gray-300">
         <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
           <TextField required id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)} />
           <TextField required id="outlined-basic" label="Password" variant="outlined" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
           <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Login</button>
         </form>
+        < p className="m-3">{"Don't "}have an account?</p>
         <Link to="/signup" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">Signup</Link>
       </div>
     </div>

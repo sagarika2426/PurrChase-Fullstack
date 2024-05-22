@@ -12,7 +12,7 @@ import { addToCart } from "../cart/cartSlice";
 
 function ProductView() {
   const { _id } = useParams();
-  console.log(_id);
+  // console.log(_id);
 
   const [product, setProduct] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -21,7 +21,7 @@ function ProductView() {
   const fetchProduct = async (_id) => {
     try {
       const res = await axios.get(`https://purrchase-fullstack.onrender.com/products/${_id}`);
-      console.log(res.data);
+      // console.log(res.data);
       setProduct(res.data);
     } catch (err) {
       console.error(err.message);
@@ -36,7 +36,7 @@ function ProductView() {
     fetchProduct(_id);
   }, [_id]);
 
-  console.log(product);
+  // console.log(product);
 
   const handleLeftClick = () => {
     setCurrentImageIndex((prevIndex) =>
@@ -112,7 +112,7 @@ function ProductView() {
             <p className="border border-orange-600 w-fit px-2 py-1 bg-slate-100 font-semibold rounded-md">
               {product?.category}
             </p>
-            <div className="border border-y-gray-500 my-4 flex flex-wrap py-2 lg:border-white">
+            <div className="border border-y-gray-500 my-4 flex flex-wrap py-2 lg:border-white px-1">
               <h1 className=" text-2xl text-red-700 font-semibold">
                 ₹{product?.price}
               </h1>

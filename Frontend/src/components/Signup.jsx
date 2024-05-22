@@ -28,9 +28,9 @@ function Signup(){
 
 
     return(
-        <div className="h-screen bg-gray-200 px-4">
+        <div className="h-screen px-4">
         <h1 className="text-center text-xl font-bold">Signup</h1>
-        <div className="w-full mx-auto p-6 text-center shadow-xl shadow-gray-500 block mt-6 bg-white lg:w-1/3">
+        <div className="w-full mx-auto p-6 text-center shadow-xl shadow-gray-400 block mt-6 bg-white lg:w-1/3 rounded-md border border-gray-300">
           <form className="flex flex-col gap-2"
           onSubmit={handleSubmit}>
             <TextField id="outlined-basic" label="First Name" varient="outlined" required

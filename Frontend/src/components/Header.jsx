@@ -15,14 +15,14 @@ function Header() {
     };
 
     return (
-        <div className="bg-orange-800 h-24 mb-2 flex items-center justify-between p-2">
+        <div className="bg-orange-800 h-24 flex items-center justify-between p-2 lg:h-32">
             {/* Logo */}
             <Link to={"/"}>
             <div className="text-center">
                 <div>
                 <img
                     src="https://us.123rf.com/450wm/zhanna26/zhanna261709/zhanna26170900035/85712562-black-silhouette-of-cat-vector-illustration.jpg?ver=6"
-                    className="h-14 rounded-full"
+                    className="h-14 rounded-full lg:h-20"
                 />
 
                 </div>
