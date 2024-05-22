@@ -24,7 +24,18 @@ const product_get_by_id = async(req, res) => {
     }
 }
 
+
+const product_post = async(req, res) => {
+    try{
+        const newProduct = new Product(req.body);
+        await newProduct.save();
+        res.send(newProduct);
+    }catch(error){
+        res.send(error.message)
+    }
+}
 module.exports = {
     products_get,
-    product_get_by_id
+    product_get_by_id,
+    product_post
 }
