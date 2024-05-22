@@ -10,28 +10,15 @@ import Home from "./components/Home";
 function App() {
   return (
     <>
-    <Routes>
-    <Route 
-          path ="/"
-          element = {<Home/>}
-        ></Route>
-        <Route 
-          path ="/signup"
-          element = {<Signup/>}
-        ></Route>
-         <Route 
-          path ="/login"
-          element = {<Login/>}
-        ></Route>
-         <Route 
-          path ="/products"
-          element = {<Products/>}
-        ></Route>
-         <Route 
-          path ="/products/:_id"
-          element = {<ProductView/>}
-        ></Route>
-          <Route path="/cart" element={<Cart/>} />
+     <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/products" element={<Products />} />
+     
+      <Route path="/products/:_id" element={<ProductView />} />
+      <Route path="/products/category/:category" element={<Products />} />
+      <Route path="/cart" element={<Cart />} />
     </Routes>
 
 
