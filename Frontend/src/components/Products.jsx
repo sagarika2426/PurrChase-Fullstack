@@ -6,10 +6,11 @@ import { addToCart } from "../cart/cartSlice";
 import {IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
+import SortProducts from "./SortProducts";
 // import CategoryFilter from "./CatergoryFilter";
 function Products() {
   const {category} = useParams()
-  // console.log("category:", category);
+  console.log("category:", category);
   const [products, setProducts] = useState([]);
 
   // for search
@@ -18,7 +19,8 @@ function Products() {
   // for showing filtered data
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-  // const [selectedCategory, setSelectedCatergy] = useState("")
+  // For Sorting
+  const [sortedProducts, setSortedProducts] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -27,6 +29,7 @@ function Products() {
       const res = await axios.get("https://purrchase-fullstack.onrender.com/products");
       setProducts(res.data);
       setFilteredProducts(res.data);
+      setSortedProducts(res.data)
     } catch (err) {
       console.log(err);
     }
@@ -61,6 +64,7 @@ function Products() {
     const { value } = event.target;
     setSearchQuery(value);
     filterProducts(value);
+    console.log(value);
   };
 
   const filterProducts = (query) => {
@@ -68,28 +72,38 @@ function Products() {
       product.name.toLowerCase().includes(query.toLowerCase())
     );
     setFilteredProducts(filtered);
+    console.log(filtered);
   };
 
   useEffect(() => {
+    console.log("Category:", category);
+  console.log("Products:", products);
+  // console.log("Filtered Products:", filteredProducts);
     // console.log("Category:", category);
   // console.log("Products:", products);
     if(category) {
       const filtered = products.filter((product) => product.category === category);
-      // console.log("filtered")
+      console.log(filtered)
       setFilteredProducts(filtered);
+    }
+    else{
+      setFilteredProducts(products);
+
     }
     
   }, [category, products])
+
+
   return (
     <div>
       {/* <h1 className="text-2xl font-bold mb-4 text-center">Products</h1> */}
-      <div className="gap-2 grid grid-cols-4 mx-2 my-4">
-        <div className="col-span-4 lg:col-span-1">
+      <div className="gap-2 grid grid-cols-5 mx-2 my-4">
+        <div className="col-span-5 lg:col-span-1">
         <TextField fullWidth
           id="outlined-basic"
           label="Search Product"
           variant="outlined"
-          size="medium"
+          size="small"
           value={searchQuery}
           onChange={handleSearch}
           InputProps={{
@@ -100,6 +114,11 @@ function Products() {
             ),
           }}
         />
+        </div>
+        <div className="m-auto">
+        <SortProducts products={products} setSortedProducts={setSortedProducts}/>
+
+
         </div>
      
         {/* <div className="col-span-3">
@@ -112,7 +131,7 @@ function Products() {
       {/* <CategoryFilter handleFilter={filterByCategory} /> */}
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-center px-2 lg:gap-4">
-        {filteredProducts.map((product) => (
+        {sortedProducts.map((product) => (
           <div
             key={product.id}
             className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-[380px] lg:h-[400px]"
