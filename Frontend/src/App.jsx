@@ -5,6 +5,7 @@ import Products from "./components/Products";
 import ProductView from "./components/ProductView";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
+import Favorites from "./components/Favorites";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Route path="/products/:_id" element={<ProductView />} />
       <Route path="/products/category/:category" element={<Products />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/favorites" element={<Favorites/>}></Route>
     </Routes>
 
 
