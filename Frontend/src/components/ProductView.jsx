@@ -9,6 +9,7 @@ import StarIcon from "@mui/icons-material/Star";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../cart/cartSlice";
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 function ProductView() {
   const { _id } = useParams();
@@ -55,6 +56,8 @@ function ProductView() {
     navigate("/products");
   };
 
+ 
+
   const handleAddToCart = (product) => {
     const userVerified = localStorage.getItem("userVerified");
     if (userVerified !== "true") {
@@ -98,8 +101,12 @@ function ProductView() {
             <div>
               <IconButton onClick={handleRightClick}>
                 <ArrowRightIcon />
-              </IconButton>{" "}
+              </IconButton>
             </div>
+
+            <IconButton>
+              <FavoriteBorderIcon/>
+            </IconButton>
           </div>
 
           {/* info div */}
@@ -112,6 +119,9 @@ function ProductView() {
             <p className="border border-orange-600 w-fit px-2 py-1 bg-slate-100 font-semibold rounded-md">
               {product?.category}
             </p>
+            <IconButton>
+              
+            </IconButton>
             <div className="border border-y-gray-500 my-4 flex flex-wrap py-2 lg:border-white px-1">
               <h1 className=" text-2xl text-red-700 font-semibold">
                 ₹{product?.price}
