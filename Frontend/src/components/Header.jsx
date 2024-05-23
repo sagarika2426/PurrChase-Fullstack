@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 function Header() {
     const cart = useSelector((state) => state.cartReducer.items) || [];
     const navigate = useNavigate();
@@ -13,6 +14,9 @@ function Header() {
     const handleNavigateLogin = () => {
         navigate("/login");
     };
+    const handleFavorites = () => {
+        navigate("/favorites")
+      }
 
     return (
         <div className="bg-orange-800 h-24 flex items-center justify-between p-2 lg:h-32">
@@ -37,6 +41,11 @@ function Header() {
             
            
             <div className="flex items-center">
+            <IconButton className="!text-white"
+            onClick={handleFavorites}>
+                    <FavoriteBorderIcon fontSize ="large"/>
+                </IconButton>
+
            
                 <IconButton onClick={handleNavigate} className="!text-white">
                     <ShoppingBagIcon fontSize="large" />
