@@ -143,7 +143,7 @@ function Products() {
                   alt={product.name}
                   className="object-contain h-42 mx-auto lg:h-52"
                 />
-                <h2 className="text-md">{product.name}</h2>
+                <h2 className="text-sm">{product.name}</h2>
               </div>
             </Link>
 
@@ -152,7 +152,7 @@ function Products() {
                 <StarIcon fontSize="small" />
                 {product?.ratings}
               </IconButton>
-              <h3 className="text-red-600 text-xl my-1 font-medium tracking-wide">
+              <h3 className="text-red-600 text-lg my-1 font-semibold">
                 ₹{product.price}
               </h3>
               <button
