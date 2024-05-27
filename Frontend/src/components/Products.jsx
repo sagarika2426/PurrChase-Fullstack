@@ -134,14 +134,14 @@ function Products() {
         {sortedProducts.map((product) => (
           <div
             key={product.id}
-            className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-[380px] lg:h-[400px]"
+            className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-[350px] lg:h-[400px]"
           >
             <Link key={product._id} to={`/products/${product._id}`}>
               <div>
                 <img
                   src={product.img[0]}
                   alt={product.name}
-                  className="object-contain h-42 mx-auto lg:h-52"
+                  className="object-contain h-42 mx-auto lg:h-52 mb-2"
                 />
                 <h2 className="text-sm">{product.name}</h2>
               </div>
@@ -156,7 +156,7 @@ function Products() {
                 ₹{product.price}
               </h3>
               <button
-                className="bg-green-700 py-2 text-white rounded-md px-4"
+                className="bg-green-700 py-1 text-white rounded-md px-4"
                 onClick={() =>
                   handleAddToCart({
                     productName: product.name,
