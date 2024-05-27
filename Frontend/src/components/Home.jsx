@@ -48,7 +48,7 @@ const Home = function () {
           <div className="flex flex-col my-4 mx-2 border border-gray-200 p-6 rounded-xl gap-2 shadow-xl bg-white md:flex-row md:items-center">
             <img
               src="https://images.summitmedia-digital.com/sap/images/2019/12/02/spot-purina-shutter-1159415002-mainimage-1-1575278367.jpg"
-              className="h-48 md:w-1/3 md:h-auto"
+              className="h-44 md:w-1/3 md:h-auto"
             />
             <div className="md:w-2/3 md:ml-4">
               <p className="font-semibold m-3">
@@ -79,7 +79,7 @@ const Home = function () {
           <div className="flex flex-col my-4 mx-2 border border-gray-200 p-6 rounded-xl gap-2 shadow-xl bg-white md:flex-row md:items-center">
             <img
               src="https://www.marthastewart.com/thmb/olgJmSzOD4Jgfa07bLZV741U2FU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/cat-playing-getty-845697720-3ca118e58ba0443995c897c4de64ae5e.jpg"
-              className="h-48 md:w-1/3 md:h-auto"
+              className="h-44 md:w-1/3 md:h-auto"
             />
             <div className="md:w-2/3 md:ml-4">
               <p className="font-semibold m-3">Making Playtime Fun</p>
