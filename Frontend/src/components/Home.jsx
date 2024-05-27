@@ -58,7 +58,7 @@ const Home = function () {
                 we simplify your search for the best cat products online.
                 Explore a variety of toys, nutritious meals, accessories,
                 grooming items, treats, and litter, all delivered to your
-                doorstep. Your {"cat's"} needs, met effortlessly!
+                doorstep.
               </p>
             </div>
           </div>
@@ -72,8 +72,7 @@ const Home = function () {
               <p>
                 Choosing the right cat food is essential for pet parents.
                 Consider factors like age, breed, and activity level when
-                deciding between wet and dry food. Prioritize your {"cat's"} dietary
-                requirements and taste preferences for optimal nutrition.
+                deciding between wet and dry food.
               </p>
             </div>
           </div>
@@ -87,9 +86,7 @@ const Home = function () {
               <p>
                 To prevent your kitty from becoming bored and engaging in
                 destructive behavior, provide a variety of toys for both
-                physical exercise and mental stimulation. Rotate toys regularly,
-                offering options like rope and feather toys in the morning and
-                calming snuggle toys at night.
+                physical exercise and mental stimulation.
               </p>
             </div>
           </div>
