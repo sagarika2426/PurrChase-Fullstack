@@ -104,7 +104,7 @@ function ProductView() {
               </IconButton>
             </div>
 
-            <IconButton>
+            <IconButton onClick={handleAddtoFav}>
               <FavoriteBorderIcon/>
             </IconButton>
           </div>

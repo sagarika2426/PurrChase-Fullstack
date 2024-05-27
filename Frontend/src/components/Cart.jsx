@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { removeFromCart, increaseQuantity, decreaseQuantity } from "../cart/cartSlice";
 
 function Cart() {
@@ -23,19 +23,34 @@ function Cart() {
 
   return (
     <div>
-      <h1 className="text-center text-xl font-bold">Your Cart</h1>
       <IconButton onClick={handleNavigate} className="!text-orange-900">
         <ArrowBackIcon />
       </IconButton>
-      <div className="text-end font-bold text-lg text-green-700 px-2 mb-6">
+      <h1 className="text-center text-xl font-bold lg:text-3xl">Your Cart</h1>
+      
+      <div className="text-end font-bold text-lg lg:text-xl text-green-700 px-2 my-6 border border-white bg-gray-100 p-2 lg:m-2 lg:p-4">
         Total Price: ₹{calculateTotalPrice()}
       </div>
       {cart.length === 0 ? (
-        <p className="text-center font-bold text-xl text-red-900">Your Cart is empty 🛒</p>
+        <div className="mb-10 m-auto lg:w-1/3">
+                  <p className="text-center font-bold text-lg text-red-700">Looks like your Cart is empty 🛒 </p>
+                  <p className="text-center text-md text-gray-500">{"Let's"} go and add something </p>
+                  <div className="m-auto text-center mt-6">
+                  <Link to={"/products"} className="px-6 py-2 rounded-lg bg-red-700 text-white font-bold hover:shadow-lg hover:bg-red-800">
+                  View Products
+                  </Link>
+                  <img src="https://img.freepik.com/free-vector/supermarket-shopping-cart-concept-illustration_114360-22408.jpg" className="w-full mt-6"></img>
+
+                  </div>
+
+
+          </div>
+
+
       ) : (
         <div className="w-full lg:w-3/5 ">
           {cart.map((product,index) => (
-            <div key={index} className="flex shadow-xl shadow-gray-300 bg-white gap-2 m-2 border border-gray-200 rounded-md p-2">
+            <div key={index} className="flex shadow-lg shadow-gray-300 bg-white gap-2 m-2 border border-gray-200 rounded-md p-2">
               <img src={product.productImg} className="h-32 lg:h-44" alt={product.productName} />
               <div>
                 <p className="font-semibold">{product.productName}</p>
@@ -54,12 +69,14 @@ function Cart() {
               
             </div>
           ))}
-        </div>
-      )}
-      <div className=" p-2">
+          <div className=" p-2">
         <button
-        className="m-auto w-full p-2 bg-blue-800 text-white text-lg rounded-md">Checkout</button>
+        className="m-auto w-full p-2 bg-blue-800 text-white text-lg rounded-md mt-10">Checkout</button>
       </div>
+        </div>
+        
+      )}
+      
     </div>
   );
 }
