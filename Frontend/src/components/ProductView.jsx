@@ -22,7 +22,7 @@ function ProductView() {
   const fetchProduct = async (_id) => {
     try {
       const res = await axios.get(`https://purrchase-fullstack.onrender.com/products/${_id}`);
-      // console.log(res.data);
+      console.log(res.data);
       setProduct(res.data);
     } catch (err) {
       console.error(err.message);
@@ -104,7 +104,7 @@ function ProductView() {
               </IconButton>
             </div>
 
-            <IconButton onClick={handleAddtoFav}>
+            <IconButton>
               <FavoriteBorderIcon/>
             </IconButton>
           </div>
