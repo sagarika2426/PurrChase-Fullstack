@@ -53,7 +53,7 @@ function Cart() {
             <div key={index} className="flex shadow-lg shadow-gray-300 bg-white gap-2 m-2 border border-gray-200 rounded-md p-2">
               <img src={product.productImg} className="h-32 lg:h-44" alt={product.productName} />
               <div>
-                <p className="font-semibold">{product.productName}</p>
+                <p className="text-sm mb-8">{product.productName}</p>
                 <p className="text-lg font-semibold text-red-600">₹{product.productPrice}</p>
               </div>
               <div className="ml-auto">
