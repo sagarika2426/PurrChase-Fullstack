@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = function () {
   return (
     <>
-      <div className="flex flex-col md:flex-col mb-6  bg-orange-100 p-4">
+      <div className="flex flex-col md:flex-col mb-6  bg-orange-100 py-4">
         {/* Top Image - all products*/}
         <div className="md:w-ful px-6">
           <div className="m-2 text-center">
@@ -64,7 +64,7 @@ const Home = function () {
               className="h-44 md:h-auto"
             />
           </div>
-          <p>
+          <p className="text-sm">
             Choosing the right cat food is essential for pet parents. Consider
             factors like age, breed, and activity level when deciding between
             wet and dry food.
@@ -80,7 +80,7 @@ const Home = function () {
               className="h-44 md:h-auto"
             />
           </div>
-          <p className="m-auto">
+          <p className="m-auto text-sm">
             we simplify your search for the best cat products online. Explore a
             variety of toys, nutritious meals, accessories, grooming items,
             treats, and litter, all delivered to your doorstep.
@@ -97,7 +97,7 @@ const Home = function () {
             />
           </div>
 
-          <p>
+          <p className="text-sm">
             To prevent your kitty from becoming bored and engaging in
             destructive behavior, provide a variety of toys for both physical
             exercise and mental stimulation.
