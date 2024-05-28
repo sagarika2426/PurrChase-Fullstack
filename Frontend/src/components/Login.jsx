@@ -68,8 +68,8 @@ function Login(){
       <h1 className="text-center text-xl font-bold">Login</h1>
       <div className="w-full mx-auto p-6 text-center shadow-xl shadow-gray-400 block mt-6 bg-white lg:w-1/3 rounded-md border border-gray-300">
         <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-          <TextField required id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)} />
-          <TextField required id="outlined-basic" label="Password" variant="outlined" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <TextField required id="outlined-basic" label="Email" variant="outlined" value={email} onChange={(e) => setEmail(e.target.value)} size="small" />
+          <TextField required id="outlined-basic" label="Password" variant="outlined" type="password" value={password} onChange={(e) => setPassword(e.target.value)} size="small"/>
           <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Login</button>
         </form>
         < p className="m-3">{"Don't "}have an account?</p>

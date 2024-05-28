@@ -27,9 +27,10 @@ function Products() {
   const fetchData = async () => {
     try {
       const res = await axios.get("https://purrchase-fullstack.onrender.com/products");
-      setProducts(res.data);
-      setFilteredProducts(res.data);
-      setSortedProducts(res.data)
+      const data = res.data
+      setProducts(data);
+      setFilteredProducts(data);
+      setSortedProducts(data)
     } catch (err) {
       console.log(err);
     }
@@ -75,6 +76,7 @@ function Products() {
     console.log(filtered);
   };
 
+  // Filtering Logic
   useEffect(() => {
     console.log("Category:", category);
   console.log("Products:", products);
@@ -92,6 +94,12 @@ function Products() {
     }
     
   }, [category, products])
+
+  useEffect(() => {
+    // Sort the filtered products whenever the filtered products change
+    setSortedProducts([...filteredProducts]);
+  }, [filteredProducts]);
+
 
 
   return (
@@ -116,7 +124,7 @@ function Products() {
         />
         </div>
         <div className="m-auto">
-        <SortProducts products={products} setSortedProducts={setSortedProducts}/>
+        <SortProducts products={filteredProducts} setSortedProducts={setSortedProducts}/>
 
 
         </div>

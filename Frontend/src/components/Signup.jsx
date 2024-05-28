@@ -34,19 +34,19 @@ function Signup(){
           <form className="flex flex-col gap-2"
           onSubmit={handleSubmit}>
             <TextField id="outlined-basic" label="First Name" varient="outlined" required
-            onChange={(e) => setFirstName(e.target.value)}/>
+            onChange={(e) => setFirstName(e.target.value)} size="small"/>
 
             <TextField id="outlined-basic" label="Last Name" varient="outlined" required
-            onChange={(e) => setLastName(e.target.value)}/>
+            onChange={(e) => setLastName(e.target.value)} size="small"/>
 
             <TextField id="outlined-basic" label="Username" varient="outlined" required
-            onChange={(e) => setUsername(e.target.value)}/>
+            onChange={(e) => setUsername(e.target.value)} size="small"/>
 
             <TextField id="outlined-basic" label="Email" varient="outlined" type="email" required
-            onChange={(e) => setEmail(e.target.value)}/>
+            onChange={(e) => setEmail(e.target.value)} size="small"/>
 
             <TextField id="outlined-basic" label="Password" varient="outlined" type="password" required
-            onChange={(e) => setPassword(e.target.value)}/>
+            onChange={(e) => setPassword(e.target.value)} size="small"/>
 
             
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Sign Up</button>
