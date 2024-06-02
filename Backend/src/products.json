@@ -1,0 +1,127 @@
+
+[
+    {
+        "id": 0,
+        "name": "Whiskas Ocean Fish Flavour Adult Cat Dry Food",
+        "img":[
+            "https://supertails.com/cdn/shop/products/61HcCwYJDWL._SL1000.jpg?v=1700817567",
+            "https://supertails.com/cdn/shop/files/5_c5f69c2a-4c8c-4f38-ab69-c28a8a9bfafd.png?v=1700817567",
+            "https://supertails.com/cdn/shop/files/6_cf1392cc-45a8-47e6-b342-5e04837b95b5.png?v=1700817567",
+            "https://supertails.com/cdn/shop/files/8_95762676-1195-4aca-bb6c-7610f80360df.png?v=1700817567"
+         ],
+        "price": 1008,
+        "category": "Food",
+        "ratings": "4.8",
+        "description" : [
+            "Delicious Ocean Fish Flavor: Whiskas Adult (+1 year) Dry Cat Food",
+            "Ocean Fish Flavor is loaded with nourishing crunchy chunks that have the irresistible taste your cat loves.",
+            "Quality Ingredients: Cats are believed to know what they want when it comes to food. Hence, our meals are made delicious with healthy ingredients and no artificial flavorings/preservatives.",
+            "Tailor-made Nutrition: This dry cat food has 41 essential nutrients and antioxidants that support your cat’s vital system. Selected vitamins and minerals keep your cat active and energetic.",
+            "Healthy Benefits: This healthy cat food is specially formulated to keep your adult cat’s coat healthy and shiny. It also promotes healthy eyesight and helps to maintain strong teeth and bones.",
+            "Suitable for: It is a complete and balanced cat food for adult cats (1+ years), that prevents obesity when fed in the right way; Check the back of the pack for feeding guidelines."
+        ]
+
+    },
+    {
+        "id": 1,
+        "name": "Arden Grange Fresh Chicken & Potato Kitten Dry Food",
+        "img":[
+            "https://supertails.com/cdn/shop/products/CFODF0010AG_1.jpg?v=1696469762",
+            "https://supertails.com/cdn/shop/products/CFODF0003AG_2.jpg?v=1655812296",
+            "https://supertails.com/cdn/shop/files/Frame_15_b63b7c93-171e-4a36-ba3d-03cf29a6b38a.png?v=1715062740",
+            "https://supertails.com/cdn/shop/products/CFODF0003AG_5.jpg?v=1655812298"
+        ],
+        "price": 599,
+        "category" : "Food",
+        "ratings" : "5.0",
+        "description":[
+            "Generous helpings of fresh chicken provide a highly digestible source of protein and a delicious meal for even the fussiest eater",
+            "Our cat foods contain a unique blend of nutrients and natural supplements to help promote the optimum health, vitality and condition of your pet",
+            "These include: prebiotics to aid digestion; joint supplements; taurine for a healthy heart, sight and nervous system; essential fatty acids to help promote a healthy skin and coat; cranberry extract for urinary tract health; natural fibers to help prevent fur balls, and natural antioxidants and vitamins to help support your pets immune system and dental health",
+            "Calorie dense - smaller portions ideally suited to a small digestive system"
+        ]
+
+    },
+    {
+        "id": 2,
+        "name": "Purepet Lavender Scented Clumping Cat Litter",
+        "img":[
+            "https://supertails.com/cdn/shop/files/Frame35_de86f830-4f6b-4aff-887c-19de03fbb9b6.png?v=1706159831",
+            "https://supertails.com/cdn/shop/products/2_140f69c4-91ae-4b34-9e34-6a4952be3dc9.jpg?v=1706159831",
+            "https://supertails.com/cdn/shop/products/3_a40f2a7c-6401-40f5-941b-3eb496086805.jpg?v=1706159831",
+            "https://supertails.com/cdn/shop/products/6_34cda4f4-7361-403c-975d-45db0fdb130b.jpg?v=1706159831"
+        
+        ],
+        "price": 314,
+        "category" : "Liter Supplies",
+        "ratings" : "4.7",
+        "description" :[
+            "Fast-Acting Clumping: This litter clumps quickly upon contact with liquid waste, making scooping easier and minimizing mess.",
+            "Natural Bentonite: Processed from natural bentonite clay, this litter is safe for your cat and your home.",
+            "Dust-Free: It uses minimal to no dust, potentially reducing allergens and making cleaning easier.",
+            "Long-Lasting: You may need to replace the litter less frequently due to clumping and odour control."
+        ]
+
+
+    },
+    {
+        "id": 3,
+        "name": "Drools Tuna & Bunito Creamy Cat Treats",
+        "img":[
+            "https://supertails.com/cdn/shop/files/DroolsCreamyTreats_Tuna_Bonito_A-5.png?v=1708337181",
+            "https://supertails.com/cdn/shop/files/tuna1.jpg?v=1708337178",
+            "https://supertails.com/cdn/shop/files/tuna2.jpg?v=1708337178",
+            "https://supertails.com/cdn/shop/files/tuna4.jpg?v=1708337178"
+        ],
+        "price": 413,
+        "category" : "Food",
+        "ratings" : "4.8",
+        "description" :[
+            "Drools Cat Creamy treats are nutritious, flavorful and pure treats that your cat will find irresistible.",
+            "High quality protein",
+            "Creates better bonding"
+        ]
+
+
+    },
+    {
+        "id": 4,
+        "name": "Jinny Tuna Cat Treat",
+        "img":[
+            "https://supertails.com/cdn/shop/products/Frame1-2021-11-12T161414.712_2.png?v=1696545086",
+            "https://supertails.com/cdn/shop/products/jinnytuna2_720x_7be125cb-5c40-4025-bddf-93cbb2018cd8.jpg?v=1696545103",
+            "https://supertails.com/cdn/shop/files/Frame10675_ce0ad534-f9cb-41de-8cc6-958990ab0e9a.png?v=1700908329"
+        ],
+        "price": 493,
+        "category" : "Food",
+        "ratings" : "4.6",
+        "description" :[
+            "Jinny Tuna Cat Snack is an appetising cat treat that is suitable for all breeds of cats. The irresistible Tuna fish and Chicken meat adds to the palatability of the treat and gives your cats enough protein content for building muscle mass and strength",
+            "Jinny Tuna Cat Snack, contains Vitamin E as an antioxidant that strengthens the defence mechanism of the cats, protecting them from various illnesses.",
+            "Omega 3 fatty acids improve eyesight and skin health",
+            "Vitamin E boosts your cat’s immunity"
+        ]
+
+
+    },
+    {
+        "id": 5,
+        "name": "Pet Vogue Multi Level Puzzle Toy for Cats",
+        "img":[
+            "https://supertails.com/cdn/shop/products/Frame1-2022-06-15T112603.370_1_1.png?v=1684565322",
+            "https://supertails.com/cdn/shop/products/Frame1-2022-06-15T112621.080.png?v=1684565322",
+            "https://supertails.com/cdn/shop/products/Frame1-2022-06-15T112627.355.png?v=1684565322",
+            "https://supertails.com/cdn/shop/products/Frame1-2022-06-15T112613.787.png?v=1684565322"
+        ],
+        "price": 450,
+        "category" : "Liter Supplies",
+        "ratings" :"4.8",
+        "description" : [
+            "This cat toy set comes with one 3 levels of ball stages tower toy all in very bright colors, orange and rainbow color, eye-catching to cats, easy to attract their attention. This cat track toy elevates playtime and interactive play with your cat, bring more fun to your life with your love cat.",
+            "Keep your cat active; healthy: if your indoor cat is extremely in need of exercise, we've got you covered, our super-fun roller toy includes 3 balls which swirl around the tracks to mimic natural prey. It will stimulate your kitties both physically and mentally, preventing them from becoming destructive or misbehaved. It won't disappoint you."
+        ]
+
+
+    }
+
+]

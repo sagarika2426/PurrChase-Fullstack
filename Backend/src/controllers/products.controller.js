@@ -1,4 +1,5 @@
 const Product = require("../schema/product.schema");
+const User = require("../schema/user.schema");
 
 const products_get = async(req, res) => {
     try{
@@ -34,6 +35,8 @@ const product_post = async(req, res) => {
         res.send(error.message)
     }
 }
+
+
 module.exports = {
     products_get,
     product_get_by_id,

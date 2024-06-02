@@ -4,6 +4,7 @@ const cors = require("cors");
 const SignupRoute = require("./src/routes/signup-route");
 const LoginRoute = require("./src/routes/login-route");
 const ProductRoute = require("./src/routes/products-route");
+const CheckoutRouter = require("./src/routes/checkout-route");
 
 const app = express();
 app.use(express.json())
@@ -19,6 +20,9 @@ app.use("/login", LoginRoute)
 
 //All products
 app.use("/products", ProductRoute)
+
+app.use("/save_address", CheckoutRouter);
+
 
 
 
