@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import {TextField} from "@mui/material"
 import { useEffect, useState } from "react"
 import axios from "axios";
@@ -51,15 +51,32 @@ function Login(){
 
   }
 
+  const navigate = useNavigate();
+  const handleNavigate = () => {
+    navigate("/products");
+  };
   if (isLoggedin) {
     return (
-      <div>
-        <div className="w-full mx-auto p-6 text-center block mt-6 bg-white lg:w-1/3">
-          <h1>You are logged in!</h1>
-          <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-4"
-          onClick={handleLogout}>Logout</button>
+      <div className="flex items-center justify-center h-screen m-auto">
+      <div className="bg-white shadow-md rounded-lg p-6 max-w-md w-full flex flex-col justify-center m-auto">
+        <h1 className="text-2xl font-bold mb-4">You are logged in!</h1>
+        <p className="text-gray-700 mb-6">Welcome back! Enjoy your time on our platform.</p>
+        <div className="flex flex-col">
+          <button
+            onClick={handleLogout}
+            className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mb-2 focus:outline-none focus:shadow-outline"
+          >
+            Logout
+          </button>
+          <button
+            onClick={handleNavigate}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Search Products
+          </button>
         </div>
       </div>
+    </div>
     );
   }
 

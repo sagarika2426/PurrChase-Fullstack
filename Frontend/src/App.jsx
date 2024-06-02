@@ -21,7 +21,7 @@ function App() {
       <Route path="/products/:_id" element={<ProductView />} />
       <Route path="/products/category/:category" element={<Products />} />
       <Route path="/cart" element={<Cart />} />
-      <Route path="/favorites" element={<Favorites/>}></Route>
+      {/* <Route path="/favorites" element={<Favorites/>}></Route> */}
       <Route path="/checkout" element={<Checkout/>}></Route>
 
 
