@@ -40,7 +40,7 @@ export default function AccordionExpandDefault() {
   
 
 
-  axios.post("http://localhost:3000/save_address/", addressData)
+  axios.post("https://purrchase-fullstack.onrender.com/save_address", addressData)
         .then(response => {
           console.log("Address saved successfully:", response.data);
         })
