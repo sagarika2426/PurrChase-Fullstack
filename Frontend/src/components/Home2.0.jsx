@@ -151,7 +151,7 @@ const HomeNew = function () {
                     to={`/products/${product._id}`}
                     className="block bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600"
                   >
-                    View Product
+                    View
                   </Link>
                 </div>
               </div>
