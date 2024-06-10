@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../cart/cartSlice";
-import {IconButton, InputAdornment, TextField } from "@mui/material";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
 import SortProducts from "./SortProducts";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
 // import CategoryFilter from "./CatergoryFilter";
 function Products() {
-  const {category} = useParams()
+  const { category } = useParams();
   console.log("category:", category);
   const [products, setProducts] = useState([]);
 
@@ -26,11 +28,13 @@ function Products() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get("https://purrchase-fullstack.onrender.com/products");
-      const data = res.data
+      const res = await axios.get(
+        "https://purrchase-fullstack.onrender.com/products"
+      );
+      const data = res.data;
       setProducts(data);
       setFilteredProducts(data);
-      setSortedProducts(data)
+      setSortedProducts(data);
     } catch (err) {
       console.log(err);
     }
@@ -42,22 +46,22 @@ function Products() {
 
   const handleAddToCart = (product) => {
     const userVerified = localStorage.getItem("userVerified");
-  if (userVerified !== "true") {
-    // If user is not verified, show alert and redirect to login page
-    window.alert("Please login first to add items to the cart.");
-    // Redirect to login page
-    window.location.href = "/login";
-    return;
-  }
+    if (userVerified !== "true") {
+      // If user is not verified, show alert and redirect to login page
+      window.alert("Please login first to add items to the cart.");
+      // Redirect to login page
+      window.location.href = "/login";
+      return;
+    }
 
-  // If user is verified, dispatch addToCart action and add item to local storage
-  dispatch(addToCart(product));
-  let existingItems = JSON.parse(localStorage.getItem("cart")) || [];
-  if (!Array.isArray(existingItems)) {
-    existingItems = [];
-  }
-  localStorage.setItem("cart", JSON.stringify([...existingItems, product]));
-  window.alert("Product added to the cart");
+    // If user is verified, dispatch addToCart action and add item to local storage
+    dispatch(addToCart(product));
+    let existingItems = JSON.parse(localStorage.getItem("cart")) || [];
+    if (!Array.isArray(existingItems)) {
+      existingItems = [];
+    }
+    localStorage.setItem("cart", JSON.stringify([...existingItems, product]));
+    window.alert("Product added to the cart");
   };
 
   // handle search input change
@@ -79,56 +83,55 @@ function Products() {
   // Filtering Logic
   useEffect(() => {
     console.log("Category:", category);
-  console.log("Products:", products);
-  // console.log("Filtered Products:", filteredProducts);
+    console.log("Products:", products);
+    // console.log("Filtered Products:", filteredProducts);
     // console.log("Category:", category);
-  // console.log("Products:", products);
-    if(category) {
-      const filtered = products.filter((product) => product.category === category);
-      console.log(filtered)
+    // console.log("Products:", products);
+    if (category) {
+      const filtered = products.filter(
+        (product) => product.category === category
+      );
+      console.log(filtered);
       setFilteredProducts(filtered);
-    }
-    else{
+    } else {
       setFilteredProducts(products);
-
     }
-    
-  }, [category, products])
+  }, [category, products]);
 
   useEffect(() => {
     // Sort the filtered products whenever the filtered products change
     setSortedProducts([...filteredProducts]);
   }, [filteredProducts]);
 
-
-
   return (
     <div>
       {/* <h1 className="text-2xl font-bold mb-4 text-center">Products</h1> */}
       <div className="gap-2 grid grid-cols-5 mx-2 my-4">
         <div className="col-span-5 lg:col-span-1">
-        <TextField fullWidth
-          id="outlined-basic"
-          label="Search Product"
-          variant="outlined"
-          size="small"
-          value={searchQuery}
-          onChange={handleSearch}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
+          <TextField
+            fullWidth
+            id="outlined-basic"
+            label="Search Product"
+            variant="outlined"
+            size="small"
+            value={searchQuery}
+            onChange={handleSearch}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
         </div>
         <div className="m-auto">
-        <SortProducts products={filteredProducts} setSortedProducts={setSortedProducts}/>
-
-
+          <SortProducts
+            products={filteredProducts}
+            setSortedProducts={setSortedProducts}
+          />
         </div>
-     
+
         {/* <div className="col-span-3">
           <IconButton style={{ fontSize: 22 }}>
             <SortIcon fontSize="small" />
@@ -142,7 +145,7 @@ function Products() {
         {sortedProducts.map((product) => (
           <div
             key={product.id}
-            className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-[350px] lg:h-[400px]"
+            className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto transform transition-transform hover:scale-105"
           >
             <Link key={product._id} to={`/products/${product._id}`}>
               <div>
@@ -151,9 +154,15 @@ function Products() {
                   alt={product.name}
                   className="object-contain h-42 mx-auto lg:h-52 mb-2"
                 />
+                
                 <h2 className="text-sm">{product.name}</h2>
               </div>
             </Link>
+            <div className="absolute top-0 right-0 mr-2 mt-2">
+                  <IconButton>
+                    <FavoriteBorderIcon />
+                  </IconButton>
+                </div>
 
             <div className="mt-auto">
               <IconButton style={{ color: "black", fontSize: 16 }}>
@@ -180,7 +189,6 @@ function Products() {
           </div>
         ))}
       </div>
-      
     </div>
   );
 }
