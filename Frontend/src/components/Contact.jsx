@@ -37,7 +37,7 @@ const ContactUs = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-4">Get in Touch</h1>
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid lg:grid-cols-2 gap-6">
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Form fields */}
         <div className="space-y-2">
@@ -110,7 +110,7 @@ const ContactUs = () => {
           Thank you for reaching out. {"We'll"} be in touch with you shortly.
         </div>
       )}
-      {/* Company contact information */}
+      {/* contact information */}
       <div className="mt-8 m-auto">
         <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
         <p className="mb-2">

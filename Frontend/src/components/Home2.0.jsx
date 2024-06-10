@@ -88,7 +88,7 @@ const HomeNew = function () {
               <img src={product.img[0]} alt={product.name} className="w-auto" />
               <div className="p-4">
                 <div>
-                  <h3 className="font-semibold lg:text-lg mb-2 text-md">{product.name}</h3>
+                  <h3 className="font-semibold lg:text-lg mb-2 text-sm">{product.name}</h3>
                   <p className="text-red-800 mt-2 font-semibold">₹{product.price}</p>
                 </div>
                 <div className="font-bold">
@@ -96,7 +96,7 @@ const HomeNew = function () {
                 </div>
               </div>
               <div className="p-2 text-sm lg:text-md">
-                <Link to={`/products/${product._id}`} className="block bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 text-center hover:bg-blue-600">
+                <Link to={`/products/${product._id}`} className="block bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600">
                   View Product
                 </Link>
               </div>

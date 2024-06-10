@@ -145,12 +145,12 @@ function ProductView() {
             </IconButton>
             <div className=" flex gap-4 lg:flex-row">
             <button
-              className="bg-gray-500 py-3 text-white rounded-md px-10 lg:mt-10 hover:bg-gray-600"
+              className="bg-gray-500 py-3 text-white rounded-md px-6 lg:mt-10 hover:bg-gray-600"
             >
               Add to Wishlist
             </button>
             <button
-              className="bg-green-700 py-3 text-white rounded-md px-10 lg:mt-10 hover:bg-green-800"
+              className="bg-green-700 py-3 text-white rounded-md px-6 lg:mt-10 hover:bg-green-800"
               onClick={() =>
                 handleAddToCart({
                   productName: product.name,
