@@ -4,7 +4,7 @@ const Address = require("../schema/addressForm.schema");
 const checkout_address_post = async(req, res) => {
     const {userId, addressData} = req.body;
     try{
-        const user = await User.findById(userId);
+        const user = await User.findById({email});
         console.log({user, userId, addressData})
         if(user){
             console.log("hello", Address)
