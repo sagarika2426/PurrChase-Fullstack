@@ -73,9 +73,7 @@ const Wishlist = () => {
          />
          <div className="flex flex-col justify-between ml-4 w-full">
            <div>
-             <p className="text-lg font-semibold mb-2">{product.name}</p>
-             <p className="text-sm text-gray-700 mb-2">Description: {product.description}</p>
-             <p className="text-lg font-semibold text-red-600">₹{product.price}</p>
+             <p className="lg:text-lg lg:font-semibold mb-2">{product.name}</p>             <p className="text-lg font-semibold text-red-600">₹{product.price}</p>
            </div>
            <div className="flex items-center justify-between">
              <button className="bg-green-600 w-28 py-1 my-2 rounded-md text-white font-semibold text-sm mr-2">
