@@ -93,7 +93,7 @@ const HomeNew = function () {
                   className="w-56 lg:w-64 mx-auto rounded-lg shadow-lg hover:shadow-xl transition duration-300 p-4"
                 />
               </Link>
-              <h3 className="font-semibold text-lg mb-2">Hygine</h3>
+              <h3 className="font-semibold text-lg mb-2">Hygiene</h3>
               <p className="text-md text-center text-red-700">
                 Essentials for keeping your {"cat's"} litter box clean and
                 fresh.
@@ -127,7 +127,7 @@ const HomeNew = function () {
             {featuredProducts.map((product) => (
               <div
                 key={product._id}
-                className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto transform transition-transform hover:scale-105"
+                className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto lg:transform lg:transition-transform lg:hover:scale-105"
               >
                 <img
                   src={product.img[0]}
@@ -140,7 +140,7 @@ const HomeNew = function () {
                       {product.name}
                     </h3>
                     <h3 className="text-red-700 font-semibold">₹{product?.price}</h3>
-                    <IconButton style={{ color: "black", fontSize: 16 }}>
+                    <IconButton style={{ color: "black", fontSize: 16, cursor:"default" }}>
                       <StarIcon fontSize="small" />
                       {product?.ratings}
                     </IconButton>

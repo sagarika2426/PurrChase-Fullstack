@@ -12,6 +12,8 @@ import ParentComponent from "./components/ParentComponent";
 import HomeNew from "./components/Home2.0";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/Contact";
+import Favorite from "./components/Favorites";
+import Wishlist from "./components/Favorites";
 
 
 function App() {
@@ -26,7 +28,7 @@ function App() {
       <Route path="/products/:_id" element={<ProductView />} />
       <Route path="/products/category/:category" element={<Products />} />
       <Route path="/cart" element={<Cart />} />
-      {/* <Route path="/favorites" element={<Favorites/>}></Route> */}
+      <Route path="/wishlist" element={<Wishlist/>}></Route>
       <Route path="/checkout" element={<ParentComponent/>}></Route>
       <Route path="/about" element={<AboutUs/>}></Route>
       <Route path="/contact" element={<ContactUs/>}></Route>

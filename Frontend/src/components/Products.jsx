@@ -8,6 +8,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
 import SortProducts from "./SortProducts";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import AddtoFav from "./AddToFav";
 
 // import CategoryFilter from "./CatergoryFilter";
 function Products() {
@@ -141,11 +142,11 @@ function Products() {
       </div>
       {/* <CategoryFilter handleFilter={filterByCategory} /> */}
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-center px-2 lg:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-center px-2 lg:gap-4 mb-6">
         {sortedProducts.map((product) => (
           <div
             key={product.id}
-            className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto transform transition-transform hover:scale-105"
+            className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto lg:transform lg:transition-transform lg:hover:scale-105"
           >
             <Link key={product._id} to={`/products/${product._id}`}>
               <div>
@@ -154,15 +155,15 @@ function Products() {
                   alt={product.name}
                   className="object-contain h-42 mx-auto lg:h-52 mb-2"
                 />
-                
+
                 <h2 className="text-sm">{product.name}</h2>
               </div>
             </Link>
             <div className="absolute top-0 right-0 mr-2 mt-2">
-                  <IconButton>
-                    <FavoriteBorderIcon />
-                  </IconButton>
-                </div>
+              <div className="absolute top-0 right-0 mr-2 mt-2">
+                <AddtoFav productId={product._id} />
+              </div>
+            </div>
 
             <div className="mt-auto">
               <IconButton style={{ color: "black", fontSize: 16 }}>

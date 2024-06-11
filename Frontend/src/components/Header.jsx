@@ -15,7 +15,7 @@ function Header() {
         navigate("/login");
     };
     const handleFavorites = () => {
-        navigate("/favorites")
+        navigate("/wishlist")
       }
 
     return (

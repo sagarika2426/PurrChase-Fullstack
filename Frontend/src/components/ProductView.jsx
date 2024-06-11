@@ -79,6 +79,19 @@ function ProductView() {
     setCurrentImageIndex(index);
   };
 
+  const handleAddToWishlist = async () => {
+    try {
+      const userDetails = JSON.parse(localStorage.getItem("userDetails"));
+      const userId = userDetails._id;
+      await axios.post(
+        `https://purrchase-fullstack.onrender.com/products/addToFav/${userId}/${product._id}`
+      );
+      window.alert("Product added to wishlist");
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <>
       <div>
@@ -89,39 +102,38 @@ function ProductView() {
           {/* img div */}
 
           <div>
-  <div className="border grid grid-cols-7 items-center justify-items-center border-b-gray-400 mb-4 lg:w-[600px]">
-    <div>
-      <IconButton onClick={handleLeftClick}>
-        <ArrowLeftIcon />
-      </IconButton>
-    </div>
-    <div className="col-span-5">
-      <img
-        src={product?.img?.[currentImageIndex]}
-        className="h-84 object-contain lg:h-full"
-      />
-    </div>
+            <div className="border grid grid-cols-7 items-center justify-items-center border-b-gray-400 mb-4 lg:w-[600px]">
+              <div>
+                <IconButton onClick={handleLeftClick}>
+                  <ArrowLeftIcon />
+                </IconButton>
+              </div>
+              <div className="col-span-5">
+                <img
+                  src={product?.img?.[currentImageIndex]}
+                  className="h-84 object-contain lg:h-full"
+                />
+              </div>
 
-    <div>
-      <IconButton onClick={handleRightClick}>
-        <ArrowRightIcon />
-      </IconButton>
-    </div>
-  </div>
+              <div>
+                <IconButton onClick={handleRightClick}>
+                  <ArrowRightIcon />
+                </IconButton>
+              </div>
+            </div>
 
-  {/* image list */}
-  <div className="w-full border flex flex-row p-2">
-    {product?.img?.map((img, index) => (
-      <img
-        key={index}
-        src={img}
-        className="w-20 lg:w-32 h-auto mb-2 m-auto cursor-pointer border border-gray-200 p-2 transition-transform hover:scale-105"
-        onClick={() => handleImgClick(index)}
-      />
-    ))}
-  </div>
-</div>
-
+            {/* image list */}
+            <div className="w-full border flex flex-row p-2">
+              {product?.img?.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  className="w-20 lg:w-32 h-auto mb-2 m-auto cursor-pointer border border-gray-200 p-2 transition-transform hover:scale-105"
+                  onClick={() => handleImgClick(index)}
+                />
+              ))}
+            </div>
+          </div>
 
           {/* info div */}
           <div className="lg:px-6">
@@ -144,29 +156,27 @@ function ProductView() {
               {"Free Delivery"}
             </IconButton>
             <div className=" flex gap-4 lg:flex-row">
-            <button
-              className="bg-gray-500 py-3 text-white rounded-md px-6 lg:mt-10 hover:bg-gray-600"
-            >
-              Add to Wishlist
-            </button>
-            <button
-              className="bg-green-700 py-3 text-white rounded-md px-6 lg:mt-10 hover:bg-green-800"
-              onClick={() =>
-                handleAddToCart({
-                  productName: product.name,
-                  productImg: product.img[currentImageIndex],
-                  productPrice: product.price,
-                  productId: product._id,
-                })
-              }
-            >
-              Add to Cart
-            </button>
-           
+              <button
+                onClick={handleAddToWishlist}
+                className="bg-gray-500 py-3 text-white rounded-md px-6 lg:mt-10 hover:bg-gray-600"
+              >
+                Add to Wishlist
+              </button>
+              <button
+                className="bg-green-700 py-3 text-white rounded-md px-6 lg:mt-10 hover:bg-green-800"
+                onClick={() =>
+                  handleAddToCart({
+                    productName: product.name,
+                    productImg: product.img[currentImageIndex],
+                    productPrice: product.price,
+                    productId: product._id,
+                  })
+                }
+              >
+                Add to Cart
+              </button>
             </div>
 
-           
-            
             {/* // desctription */}
             <div>
               <div className="my-8 lg:p-6 p-2">
