@@ -143,53 +143,54 @@ function Products() {
       {/* <CategoryFilter handleFilter={filterByCategory} /> */}
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-center px-2 lg:gap-4 mb-6">
-        {sortedProducts.map((product) => (
-          <div
-            key={product.id}
-            className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto lg:transform lg:transition-transform lg:hover:scale-105"
-          >
-            <Link key={product._id} to={`/products/${product._id}`}>
-              <div>
-                <img
-                  src={product.img[0]}
-                  alt={product.name}
-                  className="object-contain h-42 mx-auto lg:h-52 mb-2"
-                />
-
-                <h2 className="text-sm">{product.name}</h2>
-              </div>
-            </Link>
-            <div className="absolute top-0 right-0 mr-2 mt-2">
-              <div className="absolute top-0 right-0 mr-2 mt-2">
-                <AddtoFav productId={product._id} />
-              </div>
-            </div>
-
-            <div className="mt-auto">
-              <IconButton style={{ color: "black", fontSize: 16 }}>
-                <StarIcon fontSize="small" />
-                {product?.ratings}
-              </IconButton>
-              <h3 className="text-red-600 text-lg my-1 font-semibold">
-                ₹{product.price}
-              </h3>
-              <button
-                className="bg-green-700 py-1 text-white rounded-md px-4"
-                onClick={() =>
-                  handleAddToCart({
-                    productName: product.name,
-                    productImg: product.img[0],
-                    productPrice: product.price,
-                    productId: product._id,
-                  })
-                }
-              >
-                Add to Cart
-              </button>
-            </div>
-          </div>
-        ))}
+  {sortedProducts.map((product) => (
+    <div
+      key={product.id}
+      className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto lg:transform lg:transition-transform lg:hover:scale-105"
+    >
+      <div className="relative">
+        <Link key={product._id} to={`/products/${product._id}`}>
+        <img
+          src={product.img[0]}
+          alt={product.name}
+          className="object-contain h-42 mx-auto lg:h-52 mb-2"
+        /></Link>
+        
+        <div className="absolute top-0 -right-4 mr-1 mt-0">
+          <AddtoFav productId={product._id} />
+        </div>
       </div>
+      <Link key={product._id} to={`/products/${product._id}`}>
+        <h2 className="text-sm">{product.name}</h2>
+        </Link>
+      <div className="mt-auto">
+        <IconButton style={{ color: "black", fontSize: 16 }}>
+          <StarIcon fontSize="small" />
+          {product?.ratings}
+        </IconButton>
+        <h3 className="text-red-600 text-lg my-1 font-semibold">
+          ₹{product.price}
+        </h3>
+    
+        <button
+          className="bg-green-700 py-1 text-white rounded-md px-4"
+          onClick={() =>
+            handleAddToCart({
+              productName: product.name,
+              productImg: product.img[0],
+              productPrice: product.price,
+              productId: product._id,
+            })
+          }
+        >
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+
+
     </div>
   );
 }
