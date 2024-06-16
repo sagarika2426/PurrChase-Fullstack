@@ -30,7 +30,7 @@ function Cart() {
       return total + itemTotal;
     }, 0);
   };
-  const totalPriceWithDeliveryFee = calculateTotalPrice() + 49;
+  const totalPriceWithDeliveryFee = calculateTotalPrice() - 49;
 
   return (
     <div>
