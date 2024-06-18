@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../cart/cartSlice";
-import { IconButton, InputAdornment, TextField } from "@mui/material";
+import { CircularProgress, IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import StarIcon from "@mui/icons-material/Star";
 import SortProducts from "./SortProducts";
@@ -24,6 +24,7 @@ function Products() {
 
   // For Sorting
   const [sortedProducts, setSortedProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -36,8 +37,10 @@ function Products() {
       setProducts(data);
       setFilteredProducts(data);
       setSortedProducts(data);
+      setIsLoading(false);
     } catch (err) {
       console.log(err);
+      setIsLoading(false);
     }
   };
 
@@ -106,93 +109,95 @@ function Products() {
 
   return (
     <div>
-      {/* <h1 className="text-2xl font-bold mb-4 text-center">Products</h1> */}
-      <div className="gap-2 grid grid-cols-5 mx-2 my-4">
-        <div className="col-span-5 lg:col-span-1">
-          <TextField
-            fullWidth
-            id="outlined-basic"
-            label="Search Product"
-            variant="outlined"
-            size="small"
-            value={searchQuery}
-            onChange={handleSearch}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
+      {isLoading && ( // Conditionally show loading indicator
+        <div className="text-center mt-4">
+          <CircularProgress />
+          <p>Loading products...</p>
         </div>
-        <div className="m-auto">
-          <SortProducts
-            products={filteredProducts}
-            setSortedProducts={setSortedProducts}
-          />
+      )}
+
+      {!isLoading && ( // Render products when not loading
+        <div>
+          <div className="gap-2 grid grid-cols-5 mx-2 my-4">
+            <div className="col-span-5 lg:col-span-1">
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Search Product"
+                variant="outlined"
+                size="small"
+                value={searchQuery}
+                onChange={handleSearch}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </div>
+            <div className="m-auto">
+              <SortProducts
+                products={filteredProducts}
+                setSortedProducts={setSortedProducts}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-center px-2 lg:gap-4 mb-6">
+            {sortedProducts.map((product) => (
+              <div
+                key={product.id}
+                className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto lg:transform lg:transition-transform lg:hover:scale-105"
+              >
+                <div className="relative">
+                  <Link key={product._id} to={`/products/${product._id}`}>
+                    <img
+                      src={product.img[0]}
+                      alt={product.name}
+                      className="object-contain h-42 mx-auto lg:h-52 mb-2"
+                    />
+                  </Link>
+
+                  <div className="absolute top-0 -right-4 mr-1 mt-0">
+                    <AddtoFav productId={product._id} />
+                  </div>
+                </div>
+                <Link key={product._id} to={`/products/${product._id}`}>
+                  <h2 className="text-sm">{product.name}</h2>
+                </Link>
+                <div className="mt-auto">
+                  <IconButton style={{ color: "black", fontSize: 16 }}>
+                    <StarIcon fontSize="small" />
+                    {product?.ratings}
+                  </IconButton>
+                  <h3 className="text-red-600 text-lg my-1 font-semibold">
+                    ₹{product.price}
+                  </h3>
+
+                  <button
+                    className="bg-green-700 py-1 text-white rounded-md px-4"
+                    onClick={() =>
+                      handleAddToCart({
+                        productName: product.name,
+                        productImg: product.img[0],
+                        productPrice: product.price,
+                        productId: product._id,
+                      })
+                    }
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-
-        {/* <div className="col-span-3">
-          <IconButton style={{ fontSize: 22 }}>
-            <SortIcon fontSize="small" />
-            {"Sort"}
-          </IconButton>
-        </div> */}
-      </div>
-      {/* <CategoryFilter handleFilter={filterByCategory} /> */}
-
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 text-center px-2 lg:gap-4 mb-6">
-  {sortedProducts.map((product) => (
-    <div
-      key={product.id}
-      className="border p-4 rounded-xl shadow-md shadow-slate-400 bg-white flex flex-col h-auto lg:h-auto lg:transform lg:transition-transform lg:hover:scale-105"
-    >
-      <div className="relative">
-        <Link key={product._id} to={`/products/${product._id}`}>
-        <img
-          src={product.img[0]}
-          alt={product.name}
-          className="object-contain h-42 mx-auto lg:h-52 mb-2"
-        /></Link>
-        
-        <div className="absolute top-0 -right-4 mr-1 mt-0">
-          <AddtoFav productId={product._id} />
-        </div>
-      </div>
-      <Link key={product._id} to={`/products/${product._id}`}>
-        <h2 className="text-sm">{product.name}</h2>
-        </Link>
-      <div className="mt-auto">
-        <IconButton style={{ color: "black", fontSize: 16 }}>
-          <StarIcon fontSize="small" />
-          {product?.ratings}
-        </IconButton>
-        <h3 className="text-red-600 text-lg my-1 font-semibold">
-          ₹{product.price}
-        </h3>
-    
-        <button
-          className="bg-green-700 py-1 text-white rounded-md px-4"
-          onClick={() =>
-            handleAddToCart({
-              productName: product.name,
-              productImg: product.img[0],
-              productPrice: product.price,
-              productId: product._id,
-            })
-          }
-        >
-          Add to Cart
-        </button>
-      </div>
-    </div>
-  ))}
-</div>
-
-
+      )}
     </div>
   );
+
 }
 
 export default Products;
