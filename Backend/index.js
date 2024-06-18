@@ -5,12 +5,19 @@ const SignupRoute = require("./src/routes/signup-route");
 const LoginRoute = require("./src/routes/login-route");
 const ProductRoute = require("./src/routes/products-route");
 const CheckoutRouter = require("./src/routes/checkout-route");
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 
 const app = express();
 app.use(express.json())
 app.use(cors())
-const PORT = 3000;
+const PORT = 8000
 
+
+const mongooseLink = process.env.MONGOOSE_LINK
+console.log(mongooseLink)
 
 //singnup
 app.use("/signup", SignupRoute)
@@ -29,6 +36,9 @@ app.use("/save_address", CheckoutRouter);
 
 
 app.listen(PORT, async() => {
-    await mongoose.connect("mongodb+srv://sagarikasahoo16:rSATLBFShY4ulnvN@sagarikacluster.fdrdjdy.mongodb.net/PurrChase?retryWrites=true&w=majority&appName=SagarikaCluster")
+    await mongoose.connect(mongooseLink, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
     console.log(`Server is running on port ${PORT}`);
 });
